@@ -1,0 +1,195 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=3.0">
+        <title>Document</title>
+        <!-- <script src="js/hello.js"></script> -->
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>JavaScript sessionStorage Demo</h1>
+            <p>Click the button to switch to the dark/light mode.</p>
+            <p>Refresh the page to check if the mode is saved.</p>
+            <a id="theme-switcher" class="btn"></a>
+        </div>
+        <script src="js/hello.js"></script>
+
+    </body>
+
+    </html>
+
+
+    <!--
+        *async amd defer in script tag
+        *placing script in body tag
+        *data type of null = object
+        type of infinity = number
+        type of NaN = number
+        NaN != Nan
+        (2**53)-1 ==> bigint
+        The notation 3.14e7 means that take 3.14 and multiply it by 10 power 7.
+        octal number = 0o67 (0 to 7)   - "o"
+        hexa - base 16 == 0x38f (0-9, a-f a-f will be considered as 10-15 resp.) --"x"
+        binary - base 2  = 0 to 1 ==> 0b11 --"b"
+        string - Windows line break: '\r\n' ; Unix line break: '\n' ; Tab: '\t' ; Backslash '\'
+
+        To delete a property of an object, you use the delete operator:
+        delete objectName.propertyName;
+        To check if a property exists in an object, you use the in operator:
+        "propertyName" in objectName
+        To check if a value is an array, you use Array.isArray() method:
+        console.log(Array.isArray(ARRNAME)); // true
+        Note that strings are objects in many programming languages, including Java and C#. However, strings are primitive values in JavaScript.
+        PRIMITIVE VALUE VS REFERECE VALUE :
+        Copying a primitive value from one variable to another creates a separate value copy. It means that changing the value in one variable does not affect the other.
+        Copying a reference from one variable to another creates a reference so that two variables refer to the same object. This means that changing the object via one variable reflects in another variable.
+
+        stack mememory: Primitive values (null, undefined, boolean, number, string, symbol, and BigInt) and Reference values that refer to objects.
+        heap memory >- object that consits of multiple valuess
+        Infinity + -Infinity = NaN
+        let rgb = [ 'red', 'green', 'blue' ];
+        let cmyk = ['cyan', 'magenta', 'yellow', 'black'];
+        let merge = [...rgb, ...cmyk];
+        console.log(merge);
+
+        VM88:4 (7) ['red', 'green', 'blue', 'cyan', 'magenta', 'yellow', 'black']
+        let rgb = [ 'red', 'green', 'blue' ];
+        let cmyk = ['cyan', 'magenta', 'yellow', 'black'];
+        let merge = [rgb, cmyk];
+        console.log(merge);
+
+        VM112:4 (2) [Array(3), Array(4)]
+
+        Object spread operator (...) unpacks the own enumerable properties of an object.
+        Object spread operator can be used to clone an object or merge objects into one. The cloning is always shallow.
+        When merging objects, the spread operator defines new properties while the Object.assign() assigns them.
+
+        const blueSquare = {           this is deep copy.. if updated in one obj, other will also get uipdated
+        length: 100,
+        color: 'blue'
+    };const redSquare = Object.assign(blueSquare, {
+        color: 'red'
+
+        Object assign -- if object property type is only readable cannot update that property in cloned obj..
+        eg for making it only readable
+        Object.defineProperty(obj name, 'propertyname', {
+        value: 'blue',
+        enumerable: true,
+        writable: false
+    });
+    but in case of
+        spread operation, we can update that also!
+    breaking parent loop in nested loob using label ("outer")
+    outer: for (let i = 1; i <= 3; i++) {
+    for (let j = 1; j <= 3; j++) {
+        if (i + j == 4) {
+        break outer;
+        }
+        console.log(i, j);
+    }
+    }
+    });
+    Every function in JavaScript implicitly returns undefined unless you explicitly specify a return value. 
+    Function hoisting is a mechanism that the JavaScript engine physically moves function declarations to the top of the code before executing them.
+
+    Primitive wrapper types - boolean, string, number
+    ex = > let x = "sss" is equaliablet to x = new string("s") but creating without new, it wont be on the heap memory..object will be created internally and become null in next minute;
+     but incase of new... it will be there,, throught put the scope.
+
+     The comparison operators compare strings based on the numeric values of the characters. And it may return the string order that is different from the one used in dictionaries.
+     Based on Ascii code A starts from 65 and a starts from 97
+
+     numberObject.toFixed(decimalPlaces); if decimalplace is 2, there will be 2 decimals
+     number.tostring(opt?) opt ==> 2 to 36 2 means binary, 16 means hexa
+
+     Notice that if you omit the precision argument, the toPrecision() method will behave like the toString() method. See the following examples:
+
+     TYPEOF RETURNS DATATYPE 
+     INSTANCE OF : class Foo {};
+let foo = new Foo();
+console.log(foo instanceof Foo);
+RETURNS TRUE;
+
+ Operator	            Number object	    Number value
+ typeof	                "object"	         "number"
+ instanceof Number	       true	                false
+
+ Regex == "/ ithu kulla eluthanum /g" g==> global
+ matches, search,replace, some methods for manipulations
+
+
+let expression = '1 + 2 = 3';
+let matches = expression.match(/\d+/);
+console.log(matches); // "1"
+[ '1', index: 0, input: '1 + 2 = 3', groups: undefined ]
+
+let expression1 = '1 + 6 = 3';
+let matches1 = expression1.match(/\d+/g);
+  console.log(matches1);
+[ '1', '6', '3' ]
+search- return positive of given substring in that string
+let newStr = str.replace(/the/g, "a"); == > doesnot overirde original stirng
+
+bIG INT - let result = 3n / 2n;
+console.log(result); // 1n, not 1.5n .. ALWAYS WHOLE BUT NOT FRACTIONAL IN CASE OF BIGINT
+1n ==1 but 1n!== 1 in case of bigint typeof --- "bigint">
+
+
+
+When you declare a global variable using the var keyword, you add that variable to the property list of the global object. In the case of the web browser, the global object is the window. For example:
+
+var a = 10;
+console.log(window.a); // 10
+Code language: JavaScript (javascript)
+However, when you use the let keyword to declare a variable, that variable is not attached to the global object as a property. For example:
+
+let b = 20;
+console.log(window.b); // undefined
+
+let & var : {
+
+   for (let i = 0; i < 5; i++) {
+    setTimeout(() => console.log(i), 1000); - 0,1,2,3,4
+}
+for (var i = 0; i < 5; i++) {
+    setTimeout(() => console.log(i), 1000); -- 5,5,5,5,5
+} 
+}
+log(counter);
+let counter =1 ;
+accessing the "counter" variable before declaring it causes a ReferenceError. You may think that a variable declaration using the let keyword does not hoist, but it does.
+
+In fact, the JavaScript engine will hoist a variable declared by the let keyword to the top of the block. However, the JavaScript engine does not initialize the variable. Therefore, when you reference an uninitialized variable, you’ll get a ReferenceError.
+
+
+object.freeze --? 
+const x ={name: 'kd', add:{ street: "add"}};
+here if we freezed above obj, x is immutable but x.add is muttuable
+
+
+A temporal dead zone of a variable declared using the let keyword starts from the block until the initialization is evaluated.
+
+
+In the creation phase, the JavaScript engine assigns storage spaces to "var" variables and immediately initializes them to undefined.
+In the creation phase, the JavaScript engine assigns storage spaces to the " " variables but does not initialize the variables. Referencing uninitialized variables will cause a ReferenceError.
+Proxy ==
+let x = new Proxy(target, handler)
+target == oru object.. for ex => user={name:"deepak"}
+const handler{
+    get(target,property){
+        return target[property];
+    }
+    set(target, propoert, value){
+
+    }
+}
+new proxy(user,handler)
+hence, if x.name is accesed, it will invoke get method internally.. 
+deep copy.. if value updated in proxy , orginal obj also changes and vice versa..
+
+The apply() trap ==> need to look again
+
